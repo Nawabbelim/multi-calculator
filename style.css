@@ -1,0 +1,106 @@
+* {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+h2 {
+  text-align: center;
+  color: plum;
+}
+#main {
+  height: calc(100vh - 80px);
+  margin: 05px;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: 20px;
+  justify-content: center;
+  padding: 20x;
+}
+
+#notes {
+  border: 1px solid white;
+  background-color: brown;
+  color: cadetblue;
+}
+
+#notes p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#containercal {
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+#Sub1,
+#Sub2,
+#Sub3,
+#Sub4 {
+  min-height: 0;
+  margin: 3px;
+  border: 5px solid grey;
+  border-radius: 10px;
+  box-shadow: 30px 30px 20px rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  background: linear-gradient(135deg, black, purple);
+}
+.display {
+  grid-column: span 3;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  background-color: rgb(237, 131, 200);
+  border-radius: 10px;
+}
+button {
+  margin: 4px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgb(249, 4, 126), pink);
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: scale(1.2);
+}
+
+#history {
+  border: 1px solid white;
+  background-color: brown;
+  color: cadetblue;
+}
+
+#history,
+#notes {
+  margin: 5px 0;
+  padding: 5px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+#notes p button {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#notes p,
+#history p {
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+#clearh {
+  grid-column: 3;
+  align-self: end;
+}
