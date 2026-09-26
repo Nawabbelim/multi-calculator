@@ -13,21 +13,18 @@ body {
 h2 {
   text-align: center;
   color: plum;
+  font-size: clamp(20px, 5vw, 32px);
 }
 #main {
-  height: calc(100vh - 80px);
-  margin: 05px;
+  width: 100%;
+  box-sizing: border-box;
+  height: calc(100vh - 30px);
+  margin: 5px 0;
   display: grid;
   grid-template-columns: 200px 1fr 200px;
   gap: 20px;
   justify-content: center;
-  padding: 20x;
-}
-
-#notes {
-  border: 1px solid white;
-  background-color: brown;
-  color: cadetblue;
+  padding: 20px;
 }
 
 #notes p {
@@ -37,6 +34,7 @@ h2 {
 }
 #containercal {
   min-height: 0;
+  min-width: 0;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -53,15 +51,16 @@ h2 {
   border-radius: 10px;
   box-shadow: 30px 30px 20px rgba(0, 0, 0, 0.15);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(45px, 1fr));
   grid-template-rows: repeat(6, 1fr);
   background: linear-gradient(135deg, black, purple);
 }
 .display {
   grid-column: span 3;
   width: 100%;
+  min-width: 0;
   padding: 10px;
-  font-size: 20px;
+  font-size: clamp(16px, 4vw, 20px);
   background-color: rgb(237, 131, 200);
   border-radius: 10px;
 }
@@ -75,18 +74,58 @@ button:hover {
   transform: scale(1.2);
 }
 
-#history {
-  border: 1px solid white;
-  background-color: brown;
-  color: cadetblue;
+#notes h3,
+#history h3 {
+  color: plum;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 8px;
+
+  box-shadow: 0 0 20px white;
+  text-shadow: 0 0 8px rgb(255, 0, 43);
+
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
-#history,
-#notes {
-  margin: 5px 0;
-  padding: 5px;
+#notes,
+#history {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 12px;
+  color: white;
+
+  background: linear-gradient(
+    145deg,
+    rgba(80, 20, 90, 0.8),
+    rgba(20, 10, 35, 0.95)
+  );
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.5),
+    inset 0 0 15px rgba(255, 0, 180, 0.08);
+
   min-height: 0;
   overflow-y: auto;
+}
+
+#notes::-webkit-scrollbar {
+  width: 12px;
+}
+#notes::-webkit-scrollbar-track {
+  background: #16091d;
+  border-radius: 10px;
+}
+#notes::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff69b4, #c77dff, #ff69b4);
+  border-radius: 10px;
+  border: 2px solid #16091d;
+}
+#notes::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ff1493, #e0aaff, #ff1493);
 }
 
 #notes p button {
@@ -96,11 +135,56 @@ button:hover {
 
 #notes p,
 #history p {
-  border: 1px solid white;
-  border-radius: 5px;
+  margin: 8px 0;
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5d9ff;
 }
 
 #clearh {
   grid-column: 3;
   align-self: end;
+}
+
+@media (max-width: 600px) {
+  body {
+    height: auto;
+    overflow: auto;
+  }
+  #main {
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  #containercal {
+    grid-template-columns: 1fr;
+  }
+
+  #Sub1,
+  #Sub2,
+  #Sub3,
+  #Sub4 {
+    width: 100%;
+    margin: 0;
+  }
+
+  #notes,
+  #history {
+    max-height: 250px;
+  }
+
+  #clearh {
+    grid-column: 1;
+    justify-self: center;
+  }
+  button {
+    min-height: 40px;
+    font-size: 16px;
+  }
+  #containercal {
+    height: auto;
+    gap: 6px;
+  }
 }
