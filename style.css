@@ -146,6 +146,7 @@ button:hover {
 #clearh {
   grid-column: 3;
   align-self: end;
+  padding: 10px;
 }
 
 @media (max-width: 600px) {
