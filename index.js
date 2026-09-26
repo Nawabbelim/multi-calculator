@@ -71,9 +71,9 @@ calculators.forEach((calc) => {
       historyBox.append(pp);
     });
     if (window.innerWidth <= 600) {
-      historyBox.scrollTo({
-        top: historyBox.scrollHeight,
+      historyBox.scrollIntoView({
         behavior: "smooth",
+        block: "center",
       });
     }
   });

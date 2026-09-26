@@ -14,12 +14,13 @@ h2 {
   text-align: center;
   color: plum;
   font-size: clamp(20px, 5vw, 32px);
-  margin-top: 10px;
+  margin-top: 10px 0 5px;
+  line-height: 1.2;
 }
 #main {
   width: 100%;
   box-sizing: border-box;
-  height: calc(100vh - 30px);
+  height: calc(100vh - 6git 0px);
   margin: 5px 0;
   display: grid;
   grid-template-columns: 200px 1fr 200px;
