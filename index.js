@@ -70,8 +70,12 @@ calculators.forEach((calc) => {
       pp.innerHTML = item;
       historyBox.append(pp);
     });
-
-    window.scrollTo(0, document.body.scrollHeight);
+    if (window.innerWidth <= 600) {
+      historyBox.scrollTo({
+        top: historyBox.scrollHeight,
+        behavior: "smooth",
+      });
+    }
   });
   btn.forEach((b) => {
     b.addEventListener("click", (e) => {
