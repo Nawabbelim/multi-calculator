@@ -60,7 +60,6 @@ calculators.forEach((calc) => {
     currentHistoryKey = calc.id;
 
     historyBox.innerHTML = "<h3>History</h3>";
-
     if (history.length == 0) {
       const p = document.createElement("p");
       p.innerHTML = "No History yet";
@@ -71,6 +70,8 @@ calculators.forEach((calc) => {
       pp.innerHTML = item;
       historyBox.append(pp);
     });
+
+    window.scrollTo(0, document.body.scrollHeight);
   });
   btn.forEach((b) => {
     b.addEventListener("click", (e) => {
